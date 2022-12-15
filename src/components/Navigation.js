@@ -6,9 +6,30 @@ function Navigation() {
     <div className="nav=bar">
       <div className="nagivation">
         <br></br>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/trips">My Trips</NavLink>
-        <NavLink to="/newtrip">New Trip</NavLink>
+        <NavLink
+          to="/"
+          className={(isActive) =>
+            "nav-link" + (!isActive ? " unselected" : "")
+          }
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/trips"
+          className={(isActive) =>
+            "nav-link" + (!isActive ? " unselected" : "")
+          }
+        >
+          My Trips
+        </NavLink>
+        <NavLink
+          to="/newtrip"
+          className={(isActive) =>
+            "nav-link" + (!isActive ? " unselected" : "")
+          }
+        >
+          New Trip
+        </NavLink>
       </div>
     </div>
   );
