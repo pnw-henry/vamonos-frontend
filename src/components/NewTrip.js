@@ -42,7 +42,7 @@ function NewTrip({ userID, isLoggedIn }) {
       .then((r) => r.json())
       .then((newTrip) => {
         alert("Successfully Added New Trip!");
-        console.log("Added Trip:", newTrip);
+        console.log("New trip: ", newTrip);
       });
   }
 

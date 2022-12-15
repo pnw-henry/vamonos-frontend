@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-function TripCard({ trip, hotels, onDeleteTrip, onAddHotel, onTripUpdate }) {
+function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
   const { id, destination, cost, check_in, check_out, hotel_id } = trip;
   const tripAPI = `http://localhost:9292/trips/${id}`;
   const hotelAPI = "http://localhost:9292/hotels";
@@ -8,9 +8,6 @@ function TripCard({ trip, hotels, onDeleteTrip, onAddHotel, onTripUpdate }) {
     name: "",
     location: "",
   });
-
-  const hotelFound = hotels.find((hotel) => hotel.id === hotel_id);
-  console.log("hotel found: ", hotelFound);
 
   function handleDelete() {
     fetch(tripAPI, {
@@ -46,7 +43,6 @@ function TripCard({ trip, hotels, onDeleteTrip, onAddHotel, onTripUpdate }) {
     })
       .then((r) => r.json())
       .then((hotel) => {
-        onAddHotel(hotel);
         fetch(tripAPI, {
           method: "PATCH",
           headers: {
@@ -73,7 +69,7 @@ function TripCard({ trip, hotels, onDeleteTrip, onAddHotel, onTripUpdate }) {
         </span>
         <article>
           <div>
-            {hotelFound ? (
+            {hotel_id ? (
               <div className="current-hotel">
                 <span>
                   <h4>

@@ -1,6 +1,6 @@
 body {
   background-color: rgb(66, 66, 66);
-  font-family: "Lato", sans-serif;
+  font-family: "Nunito", sans-serif;
   color: rgb(234, 234, 234);
 }
 
@@ -14,7 +14,7 @@ body {
 .logo {
   color: rgb(255, 255, 255);
   text-align: center;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Oswald", sans-serif;
   margin-left: 20px;
   margin-top: 20px;
   cursor: auto;
@@ -35,4 +35,14 @@ body {
 .nav-link:hover {
   background-color: rgb(19, 68, 94);
   color: rgb(255, 255, 255);
+}
+
+.unselected {
+  background-color: rgb(28, 28, 28);
+  color: rgb(255, 255, 255);
+}
+
+.selected {
+  color: rgb(71, 169, 68);
+  text-decoration: none;
 }
