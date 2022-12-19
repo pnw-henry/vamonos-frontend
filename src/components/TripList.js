@@ -14,7 +14,7 @@ function TripList({ trips, onDeleteTrip, onTripUpdate }) {
 
   return (
     <div>
-      <ul>{tripItem}</ul>
+      <div className="trip-list">{tripItem}</div>
     </div>
   );
 }

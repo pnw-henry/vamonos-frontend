@@ -19,9 +19,15 @@ function App() {
       .then((users) => setUsers(users));
   }, []);
 
+  const currentUser = users.find((user) => {
+    return user.id === userID;
+  });
+
+  console.log("username", currentUser);
+
   return (
     <div className="app">
-      <Header />
+      <Header currentUser={currentUser} />
       <Navigation />
       <UserLogin
         loginState={userLogin}

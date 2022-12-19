@@ -5,7 +5,6 @@ function Navigation() {
   return (
     <div className="nav=bar">
       <div className="nagivation">
-        <br></br>
         <NavLink
           to="/"
           className={(isActive) =>

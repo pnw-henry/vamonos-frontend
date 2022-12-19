@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Hotels from "./Hotels";
 function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
   const { id, destination, cost, check_in, check_out, hotel_id } = trip;
   const tripAPI = `http://localhost:9292/trips/${id}`;
@@ -8,6 +9,8 @@ function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
     name: "",
     location: "",
   });
+
+  const [hotelOption, setHotelOption] = useState(false);
 
   function handleDelete() {
     fetch(tripAPI, {
@@ -61,15 +64,15 @@ function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
 
   return (
     <div className="trip-card">
-      <li className="trip-li">
+      <div className="trip-item">
         <span>
           <h2>
             <strong>{destination}</strong>
           </h2>
         </span>
         <article>
-          <div>
-            {hotel_id ? (
+          <div className="hotel-data">
+            {trip.hotel ? (
               <div className="current-hotel">
                 <span>
                   <h4>
@@ -81,6 +84,7 @@ function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
               <div className="new-hotel">
                 <span>
                   <h4>No Hotel Data Found</h4>
+                  <Hotels tripId={id} onTripUpdate={onTripUpdate} />
                   <div id="hotel-form">
                     <form onSubmit={handleHotelSubmit}>
                       <input
@@ -113,7 +117,7 @@ function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
             Remove From Trips
           </button>
         </article>
-      </li>
+      </div>
     </div>
   );
 }

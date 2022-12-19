@@ -57,7 +57,7 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
   return (
     <div className="login-container">
       {loginState ? (
-        <h1>Hi {userName.charAt(0).toUpperCase() + userName.slice(1)}!</h1>
+        ""
       ) : (
         <div>
           <span>

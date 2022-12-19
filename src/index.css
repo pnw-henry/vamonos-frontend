@@ -2,22 +2,46 @@ body {
   background-color: rgb(66, 66, 66);
   font-family: "Nunito", sans-serif;
   color: rgb(234, 234, 234);
+
+  /* WILL'S STYLES */
+  display: flex; /* Flexboxes are easy to position*/
+  flex-direction: row; /* Add new items from left to right*/
+  min-width: 320px; /* Don't allow the content to be smaller thatn this*/
+  min-height: 100vh; /* fill all vertical space*/
+  justify-content: center; /* horizontally center the page contents */
+
+  margin: 0; /* Get rid of margins and padding*/
+  padding: 0;
+  /* ************* */
 }
 
 .app {
   margin: 0 auto;
   max-width: 1200px;
   background-color: rgb(41, 41, 41);
-  text-align: left;
+
+  /* WILL'S STYLES */
+  display: flex; /* Love 'em */
+  flex-direction: column; /* stack elements from top to bottom*/
+  max-width: 1200px; /* Don't let the content get too wide */
+  width: 80vw; /* make the content 80% the width of the window/viewport */
+  min-height: 100vh;
+
+  padding: 0 2em;
+  /* ************* */
 }
 
 .logo {
   color: rgb(255, 255, 255);
-  text-align: center;
   font-family: "Oswald", sans-serif;
-  margin-left: 20px;
-  margin-top: 20px;
   cursor: auto;
+  font-size: 3em;
+}
+
+.username {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
 }
 
 .navigation {
@@ -31,7 +55,51 @@ body {
   display: inline-block;
   margin: 0 10px;
 }
+/* WILL'S STYLES */
 
+.app {
+  gap: 1em;
+}
+.nav-link:first-of-type {
+  margin-left: 0;
+}
+
+.trip-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.trip-card {
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+.trip-card h2 {
+  margin: 0;
+}
+
+.trip-card:nth-child(even) {
+  background-color: #343434;
+}
+
+button {
+  padding: 1em;
+  background-color: #666666;
+  border: none;
+  border-radius: 0.7em;
+  color: #e0e0e0;
+  font-weight: 600;
+}
+
+button.delete-button {
+  background-color: #881111;
+}
+
+.nav-link:last-of-type {
+  margin-right: 0;
+}
+
+/*************** */
 .nav-link:hover {
   background-color: rgb(19, 68, 94);
   color: rgb(255, 255, 255);
