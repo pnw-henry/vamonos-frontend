@@ -31,17 +31,62 @@ body {
   /* ************* */
 }
 
-.logo {
-  color: rgb(255, 255, 255);
-  font-family: "Oswald", sans-serif;
-  cursor: auto;
-  font-size: 3em;
+header {
+  display: flex;
+  flex-direction: row;
 }
 
-.username {
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
+.logo {
+  /* color: rgb(255, 255, 255);
+  font-family: "Oswald", sans-serif;
+  cursor: auto;
+  font-size: 3em; */
+
+  /* fill: rgb(71, 169, 68); */
+  fill: url(#GradientFill);
+  width: 1.5em;
+  height: 1.5em;
+  font-size: 2em;
+  margin: 0.67em;
+  margin-left: 0;
+}
+
+.logo stop {
+  transition: 0.4s ease;
+}
+
+.logo:hover stop:first-child {
+  stop-color: #ff66b3;
+}
+.logo:hover stop:last-child {
+  stop-color: #39a9db;
+}
+
+header h1 {
+  flex-grow: 1;
+}
+
+input {
+  margin: 1em;
+  margin-left: 0;
+  border: none;
+  border-radius: 0.2em;
+  font-size: 1em;
+  padding: 0.5em;
+}
+
+.new-trip-form input {
+  font-size: 1em;
+  padding: 0.5em;
+  width: 15em;
+}
+
+select {
+  color: #3b3b3b;
+  border: none;
+  border-radius: 0.2em;
+  font-size: 1em;
+  padding: 0.5em;
 }
 
 .navigation {

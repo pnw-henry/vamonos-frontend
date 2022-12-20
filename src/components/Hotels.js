@@ -13,8 +13,6 @@ function Hotels({ tripId, onTripUpdate }) {
   }, []);
 
   function handleHotelSelect(hotelId, tripId) {
-    console.log("hotel id:", hotelId);
-    console.log("trip id:", tripId);
     const tripAPI = `http://localhost:9292/trips/${tripId}`;
 
     fetch(tripAPI, {
@@ -42,11 +40,13 @@ function Hotels({ tripId, onTripUpdate }) {
 
   return (
     <div className="hotel-options">
-      <label htmlFor="hotels">Choose a hotel</label>
       <select
         id="hotels"
         onChange={(e) => handleHotelSelect(e.target.value, tripId)}
       >
+        <option className="hotel-item" value="selected" defaultValue>
+          Choose a hotel
+        </option>
         {hotelOption}
       </select>
     </div>

@@ -10,8 +10,6 @@ function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
     location: "",
   });
 
-  const [hotelOption, setHotelOption] = useState(false);
-
   function handleDelete() {
     fetch(tripAPI, {
       method: "DELETE",
@@ -75,9 +73,7 @@ function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
             {trip.hotel ? (
               <div className="current-hotel">
                 <span>
-                  <h4>
-                    Staying At {trip.hotel.name} in {trip.hotel.location}
-                  </h4>
+                  <h4>Staying At {trip.hotel.name}</h4>
                 </span>
               </div>
             ) : (

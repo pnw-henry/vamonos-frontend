@@ -1,14 +1,11 @@
+import Logo from "./Logo";
 function Header({ currentUser }) {
-  console.log("username inside header", currentUser);
-
   return (
     <header>
-      <h1 className="logo">
-        <strong>Vamonos</strong>
-        <span className="logo-icon"> ✈️ </span>
-      </h1>
+      <Logo />
+      <h1>Vamonos</h1>
       <h3 className="username">
-        {currentUser ? `Hi ${currentUser.name}!` : "No User Logged In"}
+        {currentUser ? `Hi ${currentUser.name}!` : ""}
       </h3>
     </header>
   );

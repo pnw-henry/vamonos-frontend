@@ -23,8 +23,6 @@ function App() {
     return user.id === userID;
   });
 
-  console.log("username", currentUser);
-
   return (
     <div className="app">
       <Header currentUser={currentUser} />
@@ -44,7 +42,11 @@ function App() {
           path="/newtrip"
           element={<NewTrip userID={userID} isLoggedIn={userLogin} />}
         ></Route>
-        <Route exact path="/" element={<Home />}></Route>
+        <Route
+          exact
+          path="/"
+          element={<Home userID={userID} isLoggedIn={userLogin} />}
+        ></Route>
       </Routes>
     </div>
   );
