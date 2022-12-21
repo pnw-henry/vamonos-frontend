@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function UserLogin({ loginState, onUserLogin, users, onUserSelect, userID }) {
+function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
   const [userName, setUserName] = useState("");
   const [newUser, setNewUser] = useState("");
   const userAPI = "http://localhost:9292/users";
