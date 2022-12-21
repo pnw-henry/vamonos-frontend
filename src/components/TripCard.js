@@ -79,7 +79,7 @@ function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
             ) : (
               <div className="new-hotel">
                 <span>
-                  <h4>No Hotel Data Found</h4>
+                  <h4>No Hotel Found</h4>
                   <Hotels tripId={id} onTripUpdate={onTripUpdate} />
                   <div id="hotel-form">
                     <form onSubmit={handleHotelSubmit}>
