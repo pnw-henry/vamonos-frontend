@@ -12,7 +12,7 @@ function Home({ userID, isLoggedIn }) {
         .then((r) => r.json())
         .then((trip) => setFirstTrip(trip));
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, userID, API]);
 
   return (
     <div className="home">

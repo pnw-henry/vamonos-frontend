@@ -10,7 +10,7 @@ function Trips({ userID, isLoggedIn }) {
         .then((r) => r.json())
         .then((trips) => setUserTrips(trips));
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, userTripsAPI]);
 
   function sortTrips(trips) {
     const sortedTrips = trips.sort((a, b) => a.check_in - b.check_in);
@@ -37,8 +37,6 @@ function Trips({ userID, isLoggedIn }) {
       </div>
     );
   }
-
-  console.log("User Trips: ", userTrips);
 
   return (
     <div className="tripspace">
