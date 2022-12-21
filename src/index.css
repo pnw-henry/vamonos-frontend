@@ -3,16 +3,14 @@ body {
   font-family: "Nunito", sans-serif;
   color: rgb(234, 234, 234);
 
-  /* WILL'S STYLES */
-  display: flex; /* Flexboxes are easy to position*/
+  display: flex;
   flex-direction: row; /* Add new items from left to right*/
-  min-width: 320px; /* Don't allow the content to be smaller thatn this*/
+  min-width: 320px; /* Don't allow the content to be smaller than this*/
   min-height: 100vh; /* fill all vertical space*/
   justify-content: center; /* horizontally center the page contents */
 
   margin: 0; /* Get rid of margins and padding*/
   padding: 0;
-  /* ************* */
 }
 
 .app {
@@ -20,15 +18,13 @@ body {
   max-width: 1200px;
   background-color: rgb(41, 41, 41);
 
-  /* WILL'S STYLES */
-  display: flex; /* Love 'em */
+  display: flex;
   flex-direction: column; /* stack elements from top to bottom*/
   max-width: 1200px; /* Don't let the content get too wide */
   width: 80vw; /* make the content 80% the width of the window/viewport */
   min-height: 100vh;
 
   padding: 0 2em;
-  /* ************* */
 }
 
 header {
@@ -37,12 +33,6 @@ header {
 }
 
 .logo {
-  /* color: rgb(255, 255, 255);
-  font-family: "Oswald", sans-serif;
-  cursor: auto;
-  font-size: 3em; */
-
-  /* fill: rgb(71, 169, 68); */
   fill: url(#GradientFill);
   width: 1.5em;
   height: 1.5em;
@@ -100,7 +90,6 @@ select {
   display: inline-block;
   margin: 0 10px;
 }
-/* WILL'S STYLES */
 
 .app {
   gap: 1em;
@@ -144,7 +133,6 @@ button.delete-button {
   margin-right: 0;
 }
 
-/*************** */
 .nav-link:hover {
   background-color: rgb(19, 68, 94);
   color: rgb(255, 255, 255);

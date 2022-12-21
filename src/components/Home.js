@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import NewTrip from "./NewTrip";
+import { Link } from "react-router-dom";
 
 function Home({ userID, isLoggedIn }) {
   const [firstTrip, setFirstTrip] = useState("");
@@ -14,15 +16,29 @@ function Home({ userID, isLoggedIn }) {
 
   return (
     <div className="home">
-      {isLoggedIn ? (
-        <div className="home-trip">
-          <h3>Get ready for {firstTrip.destination}</h3>
-          <p>Check In: {firstTrip.check_in}</p>
-          <p>Check Out: {firstTrip.check_out}</p>
-        </div>
-      ) : (
-        ""
-      )}
+      <div className="trips-found">
+        {isLoggedIn && firstTrip !== "" ? (
+          <div className="home-trip">
+            <h3>Get ready for {firstTrip.destination}!</h3>
+            <p>Check In: {firstTrip.check_in}</p>
+            <p>Check Out: {firstTrip.check_out}</p>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+      <div className="trips-absent">
+        {isLoggedIn && firstTrip === "" ? (
+          <div className="no-trips">
+            <h3>You have no upcoming trips.</h3>
+            <Link to="/newtrip">
+              <h3>Add new trip?</h3>
+            </Link>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }
