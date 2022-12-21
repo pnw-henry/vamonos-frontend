@@ -54,8 +54,6 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect, userID }) {
     }
   }
 
-  function handleSignOut() {}
-
   return (
     <div className="login-container">
       {loginState ? (
