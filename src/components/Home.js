@@ -16,9 +16,9 @@ function Home({ userID, isLoggedIn }) {
 
   return (
     <div className="home">
-      <div className="trips-found">
+      <div>
         {isLoggedIn && firstTrip !== "" ? (
-          <div className="home-trip">
+          <div className="home-trips">
             <h3>Get ready for {firstTrip.destination}!</h3>
             <p>Check In: {firstTrip.check_in}</p>
             <p>Check Out: {firstTrip.check_out}</p>
@@ -27,7 +27,7 @@ function Home({ userID, isLoggedIn }) {
           ""
         )}
       </div>
-      <div className="trips-absent">
+      <div>
         {isLoggedIn && firstTrip === "" ? (
           <div className="no-trips">
             <h3>You have no upcoming trips.</h3>
