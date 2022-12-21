@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Hotels from "./Hotels";
 function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
-  const { id, destination, cost, check_in, check_out, hotel_id } = trip;
+  const { id, destination, cost, check_in, check_out } = trip;
   const tripAPI = `http://localhost:9292/trips/${id}`;
   const hotelAPI = "http://localhost:9292/hotels";
 
