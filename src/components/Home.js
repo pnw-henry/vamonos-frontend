@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import NewTrip from "./NewTrip";
 import { Link } from "react-router-dom";
 
 function Home({ userID, isLoggedIn }) {
@@ -7,7 +6,7 @@ function Home({ userID, isLoggedIn }) {
   const API = `http://localhost:9292/trips/first/${userID}`;
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoggedIn & (userID !== 0)) {
       fetch(API)
         .then((r) => r.json())
         .then((trip) => setFirstTrip(trip));
