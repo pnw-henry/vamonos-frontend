@@ -56,6 +56,19 @@ header h1 {
   flex-grow: 1;
 }
 
+.no-trips h3 {
+  cursor: pointer;
+  color: #39a9db;
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
 input {
   margin: 1em;
   margin-left: 0;
