@@ -38,6 +38,8 @@ function Trips({ userID, isLoggedIn }) {
     );
   }
 
+  console.log("User Trips: ", userTrips);
+
   return (
     <div className="tripspace">
       <TripList
