@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Vamonos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Vamonos is a React Web Application focousing on travel and its related topics, such as hotels and check-in information. In the "My Trips" section of the app, users can find trip details, add missing hotel information if necessary, or delete trips from their list. In the "New Trip" section, users can add new trips to their account. Users must first log in or create an account to use the app.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+No API key required. 
 
-### `npm start`
+* Fork and clone the Github [repository](https://github.com/pnw-henry/vamonos-frontend) into a local machine. This contains the React portion of the app. The backend can be found here [repository](https://github.com/pnw-henry/phase-3-sinatra-react-project).
+* Navigate to the directory created by using Finder (Mac), Explorer (Windows) or a command line interface:
+	On Mac, open the terminal app, cd into the vamonos-frontend directory, type npm start. This will start the react server hosting the app components and files.
+	Navigate to the cloned phase-3-sinatra-react-project and bundle exec rake server. This will start the backend for Vamonos.
+	
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Vamonos is divided into three sections: Home, My Trips, and New Trip.
 
-### `npm test`
+The Home section contains simple login and create account inputs. If the user is signed in and if there's trip information, an upcoming trip will be displayed. My Trips contains a list of trips; each trip contains hotel information, cost, check-in and check-out dates. New Trip has a form that can be used to submit a new trips to the server.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Roadmap
 
-### `npm run build`
+* Implement the ability to sort results.
+* Update the Home page to be more visually pleasing and interactive.
+* Add more detailed trip information, such as an image related to the destination using the Google Places API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Pulls requests are welcome.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+GPL-3.0
