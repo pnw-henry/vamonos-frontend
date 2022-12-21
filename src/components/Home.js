@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function Home({ userID, isLoggedIn }) {
   const [firstTrip, setFirstTrip] = useState("");
+  //Server returns the closest trip to the current date
   const API = `http://localhost:9292/trips/first/${userID}`;
 
   useEffect(() => {
