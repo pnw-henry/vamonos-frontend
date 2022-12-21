@@ -16,7 +16,7 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect, userID }) {
   function handleNewUserSubmit(e) {
     e.preventDefault();
 
-    if (newUser.length > 3) {
+    if (newUser.length > 2) {
       const newUserObj = {
         name: newUser,
       };
