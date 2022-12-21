@@ -56,6 +56,12 @@ header h1 {
   flex-grow: 1;
 }
 
+.login-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 .no-trips h3:last-child {
   cursor: pointer;
   color: #39a9db;

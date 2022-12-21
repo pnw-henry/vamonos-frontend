@@ -61,8 +61,8 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect, userID }) {
       {loginState ? (
         ""
       ) : (
-        <div>
-          <span>
+        <div className="login-inputs">
+          <div className="existing-user">
             <h3>Get Started</h3>
             <form className="login-form" onSubmit={handleExistingUserSubmit}>
               <input
@@ -76,6 +76,8 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect, userID }) {
                 Login
               </button>
             </form>
+          </div>
+          <div className="new-user">
             <h3>Join Vamonos</h3>
             <form className="new-user-form" onSubmit={handleNewUserSubmit}>
               <input
@@ -89,7 +91,7 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect, userID }) {
                 Create Account
               </button>
             </form>
-          </span>
+          </div>
         </div>
       )}
     </div>
