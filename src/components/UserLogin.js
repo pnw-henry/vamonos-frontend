@@ -39,6 +39,8 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
     }
   }
 
+  function handleSignOut() {}
+
   function handleExistingUserSubmit(e) {
     e.preventDefault();
 
