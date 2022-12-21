@@ -52,7 +52,7 @@ function NewTrip({ userID, isLoggedIn }) {
         <h3>You must have an existing account to create new trips.</h3>
       ) : (
         <div className="form-container">
-          <h2>Create New Trip</h2>
+          <h2>Where to?</h2>
           <form className="new-trip-form" onSubmit={handleTripSubmit}>
             <input
               name="destination"

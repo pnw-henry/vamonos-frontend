@@ -42,11 +42,15 @@ function Trips({ userID, isLoggedIn }) {
 
   return (
     <div className="tripspace">
-      <TripList
-        trips={userTrips}
-        onDeleteTrip={onDeleteTrip}
-        onTripUpdate={onTripUpdate}
-      />
+      {userTrips.length !== 0 ? (
+        <TripList
+          trips={userTrips}
+          onDeleteTrip={onDeleteTrip}
+          onTripUpdate={onTripUpdate}
+        />
+      ) : (
+        <h3>Staying at home for a while?</h3>
+      )}
     </div>
   );
 }

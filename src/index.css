@@ -56,7 +56,7 @@ header h1 {
   flex-grow: 1;
 }
 
-.no-trips h3 {
+.no-trips h3:last-child {
   cursor: pointer;
   color: #39a9db;
   text-decoration: none;

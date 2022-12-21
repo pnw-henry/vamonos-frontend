@@ -29,7 +29,7 @@ function Home({ userID, isLoggedIn }) {
       <div>
         {isLoggedIn && firstTrip === "" ? (
           <div className="no-trips">
-            <h2>You have no upcoming trips.</h2>
+            <h3>You have no upcoming trips.</h3>
             <Link to="/newtrip">
               <h3>Add new trip?</h3>
             </Link>
