@@ -4,12 +4,12 @@ body {
   color: rgb(234, 234, 234);
 
   display: flex;
-  flex-direction: row; /* Add new items from left to right*/
-  min-width: 320px; /* Don't allow the content to be smaller than this*/
-  min-height: 100vh; /* fill all vertical space*/
-  justify-content: center; /* horizontally center the page contents */
+  flex-direction: row;
+  min-width: 320px;
+  min-height: 100vh;
+  justify-content: center;
 
-  margin: 0; /* Get rid of margins and padding*/
+  margin: 0;
   padding: 0;
 }
 
@@ -19,9 +19,9 @@ body {
   background-color: rgb(41, 41, 41);
 
   display: flex;
-  flex-direction: column; /* stack elements from top to bottom*/
-  max-width: 1200px; /* Don't let the content get too wide */
-  width: 80vw; /* make the content 80% the width of the window/viewport */
+  flex-direction: column;
+  max-width: 1200px;
+  width: 80vw;
   min-height: 100vh;
 
   padding: 0 2em;
