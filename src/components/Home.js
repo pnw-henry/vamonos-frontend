@@ -1,42 +1,39 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 function Home({ userID, isLoggedIn }) {
-  const [firstTrip, setFirstTrip] = useState("");
-  //Server returns the closest trip to the current date
-  const API = `http://localhost:9292/trips/first/${userID}`;
+  const [user, setUser] = useState("");
+  //Current user's trips and hotels
+  const API = `http://localhost:9292/currentuser/${userID}`;
 
   useEffect(() => {
     if (isLoggedIn & (userID !== 0)) {
       fetch(API)
         .then((r) => r.json())
-        .then((trip) => setFirstTrip(trip));
+        .then((user) => setUser(user));
     }
   }, [isLoggedIn, userID, API]);
 
   return (
     <div className="home">
-      <div>
-        {isLoggedIn && firstTrip !== "" ? (
-          <div className="home-trips">
-            <h3>Get ready for {firstTrip.destination}!</h3>
-            <p>Check In: {firstTrip.check_in}</p>
-            <p>Check Out: {firstTrip.check_out}</p>
+      <div className="home-trips">
+        {isLoggedIn &&
+        user !== "" &&
+        user.trips != null &&
+        user.trips.length > 0 ? (
+          <div>
+            <h2>Your Destinations</h2>
+            {user.trips.map((trip) => {
+              return <p key={trip.id}>{trip.destination}</p>;
+            })}
+            <h2>Your Hotels</h2>
+            {user.trips.map((trip) => {
+              if (trip.hotel != null) {
+                return <p key={trip.id}>{trip.hotel.name}</p>;
+              }
+            })}
           </div>
         ) : (
-          ""
-        )}
-      </div>
-      <div>
-        {isLoggedIn && firstTrip === "" ? (
-          <div className="no-trips">
-            <h3>You have no upcoming trips.</h3>
-            <Link to="/newtrip">
-              <h3>Add new trip?</h3>
-            </Link>
-          </div>
-        ) : (
-          ""
+          <p></p>
         )}
       </div>
     </div>
