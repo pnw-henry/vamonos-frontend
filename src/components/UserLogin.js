@@ -3,7 +3,9 @@ import React, { useState } from "react";
 function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
   const [userName, setUserName] = useState("");
   const [newUser, setNewUser] = useState("");
+  const [existingUser, setExistingUser] = useState("");
   const userAPI = "http://localhost:9292/users";
+  const userSearchAPI = `http://localhost:9292//user/search/${userName}`;
 
   function handleLoginChange(e) {
     setUserName(e.target.value);
@@ -18,8 +20,10 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
 
     if (newUser.length > 2) {
       const newUserObj = {
-        name: newUser,
+        username: newUser,
       };
+
+      console.log("userobject", newUserObj);
 
       fetch(userAPI, {
         method: "POST",
@@ -28,11 +32,20 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
         },
         body: JSON.stringify(newUserObj),
       })
-        .then((r) => r.json())
+        .then((r) => {
+          console.log(r);
+          r.json();
+        })
         .then((user) => {
-          onUserLogin(true);
-          onUserSelect(user.id);
-          setUserName(user.name);
+          console.log(user);
+          if (user) {
+            console.log("inside if", user);
+          } else {
+            console.log("inside else", user);
+            /*onUserLogin(true);
+            onUserSelect(user.id);
+            setUserName(user.username);*/
+          }
         });
     } else {
       alert("Invalid Username. Try again");
@@ -43,7 +56,7 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
     e.preventDefault();
 
     const userFound = users.find((user) => {
-      return user.name.toLowerCase() === userName.toLowerCase();
+      return user.username.toLowerCase() === userName.toLowerCase();
     });
 
     if (userFound) {
@@ -67,7 +80,7 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
                 value={userName}
                 onChange={handleLoginChange}
                 type="text"
-                placeholder="Enter name..."
+                placeholder="Enter username..."
               />
               <br></br>
               <button type="submit" className="login-button">
@@ -82,7 +95,7 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
                 value={newUser}
                 onChange={handleNewUserChange}
                 type="text"
-                placeholder="Enter name..."
+                placeholder="Choose a username..."
               />
               <br></br>
               <button type="submit" className="new-user-button">
