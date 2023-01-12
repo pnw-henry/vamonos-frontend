@@ -1,16 +1,7 @@
-import React, { useState, useEffect } from "react";
-
-function Hotels({ tripId, onTripUpdate }) {
-  const [hotels, setHotels] = useState([]);
-  const hotelAPI = "http://localhost:9292/hotels";
-
-  useEffect(() => {
-    fetch(hotelAPI)
-      .then((r) => r.json())
-      .then((hotels) => {
-        setHotels(hotels);
-      });
-  }, []);
+function Hotels({ hotels, tripId, onTripUpdate }) {
+  if (!hotels || !tripId) {
+    return <div></div>;
+  }
 
   function handleHotelSelect(hotelId, tripId) {
     const tripAPI = `http://localhost:9292/trips/${tripId}`;

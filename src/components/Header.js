@@ -5,7 +5,7 @@ function Header({ currentUser }) {
       <Logo />
       <h1>Vamonos</h1>
       <h3 className="username">
-        {currentUser ? `Hi ${currentUser.name}!` : ""}
+        {currentUser ? `Hi ${currentUser.username}!` : ""}
       </h3>
     </header>
   );

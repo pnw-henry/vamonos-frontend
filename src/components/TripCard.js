@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Hotels from "./Hotels";
-function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
+function TripCard({ trip, onDeleteTrip, onTripUpdate, hotels }) {
   const { id, destination, cost, check_in, check_out } = trip;
   const tripAPI = `http://localhost:9292/trips/${id}`;
   const hotelAPI = "http://localhost:9292/hotels";
@@ -80,7 +80,11 @@ function TripCard({ trip, onDeleteTrip, onTripUpdate }) {
               <div className="new-hotel">
                 <span>
                   <h4>No Hotel Found</h4>
-                  <Hotels tripId={id} onTripUpdate={onTripUpdate} />
+                  <Hotels
+                    hotels={hotels}
+                    tripId={id}
+                    onTripUpdate={onTripUpdate}
+                  />
                   <div id="hotel-form">
                     <form onSubmit={handleHotelSubmit}>
                       <input

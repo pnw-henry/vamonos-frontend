@@ -1,6 +1,6 @@
 import TripCard from "./TripCard";
 
-function TripList({ trips, onDeleteTrip, onTripUpdate }) {
+function TripList({ trips, onDeleteTrip, onTripUpdate, hotels }) {
   const tripItem = trips.map((trip) => {
     return (
       <TripCard
@@ -8,6 +8,7 @@ function TripList({ trips, onDeleteTrip, onTripUpdate }) {
         trip={trip}
         onDeleteTrip={onDeleteTrip}
         onTripUpdate={onTripUpdate}
+        hotels={hotels}
       />
     );
   });

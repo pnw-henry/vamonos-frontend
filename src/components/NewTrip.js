@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function NewTrip({ userID, isLoggedIn }) {
+function NewTrip({ userID, isLoggedIn, onSetTrips, trips }) {
   const [tripForm, setTripForm] = useState({
     destination: "",
     cost: "",
@@ -31,7 +31,6 @@ function NewTrip({ userID, isLoggedIn }) {
       hotel_id: null,
     };
 
-    console.log("newtrip", newTrip);
     fetch(tripAPI, {
       method: "POST",
       headers: {
@@ -41,8 +40,8 @@ function NewTrip({ userID, isLoggedIn }) {
     })
       .then((r) => r.json())
       .then((newTrip) => {
-        alert("Successfully Added New Trip!");
-        console.log("New trip: ", newTrip);
+        console.log("new trip", newTrip);
+        onSetTrips([...trips, newTrip]);
       });
   }
 

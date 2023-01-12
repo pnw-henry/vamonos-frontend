@@ -6,47 +6,69 @@ import UserLogin from "./UserLogin";
 import Navigation from "./Navigation";
 import NewTrip from "./NewTrip";
 import Trips from "./Trips";
+import Hotels from "./Hotels";
 
 function App() {
-  const [users, setUsers] = useState([]);
   const [userLogin, setUserLogin] = useState(false);
-  const [userID, setUserID] = useState(0);
-  const userAPI = "http://localhost:9292/users";
+  const [user, setUser] = useState(0);
+  const [trips, setTrips] = useState([]);
+  const [hotels, setHotels] = useState([]);
+  const hotelAPI = "http://localhost:9292/hotels";
 
   useEffect(() => {
-    fetch(userAPI)
+    fetch(hotelAPI)
       .then((r) => r.json())
-      .then((users) => setUsers(users));
+      .then((hotels) => {
+        setHotels(hotels);
+      });
   }, []);
 
-  const currentUser = users.find((user) => {
-    return user.id === userID;
-  });
+  useEffect(() => {
+    if (userLogin) {
+      const userTrips = user.trips.map((trip) => {
+        return trip;
+      });
+      setTrips(userTrips);
+    }
+  }, [user]);
 
   return (
     <div className="app">
-      <Header currentUser={currentUser} />
+      <Header currentUser={user} />
       <Navigation />
       <UserLogin
         loginState={userLogin}
         onUserLogin={setUserLogin}
-        users={users}
-        onUserSelect={setUserID}
-        userID={userID}
+        onUserSelect={setUser}
       />
+      <Hotels hotels={hotels} />
       <Routes>
         <Route
           path="/trips"
-          element={<Trips userID={userID} isLoggedIn={userLogin} />}
+          element={
+            <Trips
+              isLoggedIn={userLogin}
+              trips={trips}
+              onSetTrips={setTrips}
+              hotels={hotels}
+            />
+          }
         ></Route>
         <Route
           path="/newtrip"
-          element={<NewTrip userID={userID} isLoggedIn={userLogin} />}
+          element={
+            <NewTrip
+              userID={user.id}
+              isLoggedIn={userLogin}
+              onSetTrips={setTrips}
+              trips={trips}
+            />
+          }
         ></Route>
         <Route
           exact
           path="/"
-          element={<Home userID={userID} isLoggedIn={userLogin} />}
+          element={<Home user={user} isLoggedIn={userLogin} trips={trips} />}
         ></Route>
       </Routes>
     </div>

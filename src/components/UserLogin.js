@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 
-function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
-  const [userName, setUserName] = useState("");
+function UserLogin({ loginState, onUserLogin, onUserSelect }) {
   const [newUser, setNewUser] = useState("");
   const [existingUser, setExistingUser] = useState("");
   const userAPI = "http://localhost:9292/users";
-  const userSearchAPI = `http://localhost:9292//user/search/${userName}`;
+  const userSearchAPI = `http://localhost:9292//user/search/${existingUser}`;
 
   function handleLoginChange(e) {
-    setUserName(e.target.value);
+    setExistingUser(e.target.value);
   }
 
   function handleNewUserChange(e) {
@@ -23,8 +22,6 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
         username: newUser,
       };
 
-      console.log("userobject", newUserObj);
-
       fetch(userAPI, {
         method: "POST",
         headers: {
@@ -32,19 +29,14 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
         },
         body: JSON.stringify(newUserObj),
       })
-        .then((r) => {
-          console.log(r);
-          r.json();
-        })
+        .then((r) => r.json())
         .then((user) => {
-          console.log(user);
-          if (user) {
-            console.log("inside if", user);
+          if (typeof user === "string") {
+            alert(`${user} is taken!`);
           } else {
-            console.log("inside else", user);
-            /*onUserLogin(true);
-            onUserSelect(user.id);
-            setUserName(user.username);*/
+            onUserLogin(true);
+            onUserSelect(user);
+            setExistingUser(user.username);
           }
         });
     } else {
@@ -55,16 +47,17 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
   function handleExistingUserSubmit(e) {
     e.preventDefault();
 
-    const userFound = users.find((user) => {
-      return user.username.toLowerCase() === userName.toLowerCase();
-    });
-
-    if (userFound) {
-      onUserLogin(true);
-      onUserSelect(userFound.id);
-    } else {
-      alert("User Not Found");
-    }
+    fetch(userSearchAPI)
+      .then((r) => r.json())
+      .then((user) => {
+        if (user) {
+          onUserLogin(true);
+          onUserSelect(user);
+          setExistingUser(user.username);
+        } else {
+          alert("User Not Found");
+        }
+      });
   }
 
   return (
@@ -77,7 +70,7 @@ function UserLogin({ loginState, onUserLogin, users, onUserSelect }) {
             <h3>Get Started</h3>
             <form className="login-form" onSubmit={handleExistingUserSubmit}>
               <input
-                value={userName}
+                value={existingUser}
                 onChange={handleLoginChange}
                 type="text"
                 placeholder="Enter username..."
