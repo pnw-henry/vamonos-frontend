@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
 import TripList from "./TripList";
+
 function Trips({ isLoggedIn, trips, onSetTrips, hotels }) {
   function sortTrips(trips) {
-    const sortedTrips = trips.sort((a, b) => a.check_in - b.check_in);
+    const sortedTrips = trips.sort((a, b) =>
+      a.check_in.localeCompare(b.check_in)
+    );
     return sortedTrips;
   }
 
@@ -25,11 +27,13 @@ function Trips({ isLoggedIn, trips, onSetTrips, hotels }) {
     );
   }
 
+  const sortedTrips = sortTrips(trips);
+
   return (
     <div className="tripspace">
       {trips.length !== 0 ? (
         <TripList
-          trips={trips}
+          trips={sortedTrips}
           onDeleteTrip={onDeleteTrip}
           onTripUpdate={onTripUpdate}
           hotels={hotels}

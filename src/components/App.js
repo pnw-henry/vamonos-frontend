@@ -13,6 +13,7 @@ function App() {
   const [user, setUser] = useState(0);
   const [trips, setTrips] = useState([]);
   const [hotels, setHotels] = useState([]);
+  const [userHotels, setUserHotels] = useState([]);
   const hotelAPI = "http://localhost:9292/hotels";
 
   useEffect(() => {
@@ -25,12 +26,16 @@ function App() {
 
   useEffect(() => {
     if (userLogin) {
-      const userTrips = user.trips.map((trip) => {
-        return trip;
+      const userTrips = [];
+      const userHotels = [];
+      user.trips.forEach((trip) => {
+        userTrips.push(trip);
+        userHotels.push(trip.hotel);
       });
       setTrips(userTrips);
+      setUserHotels(userHotels);
     }
-  }, [user]);
+  }, [user, userLogin]);
 
   return (
     <div className="app">
@@ -68,7 +73,14 @@ function App() {
         <Route
           exact
           path="/"
-          element={<Home user={user} isLoggedIn={userLogin} trips={trips} />}
+          element={
+            <Home
+              user={user}
+              isLoggedIn={userLogin}
+              trips={trips}
+              hotels={userHotels}
+            />
+          }
         ></Route>
       </Routes>
     </div>

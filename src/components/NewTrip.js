@@ -40,8 +40,8 @@ function NewTrip({ userID, isLoggedIn, onSetTrips, trips }) {
     })
       .then((r) => r.json())
       .then((newTrip) => {
-        console.log("new trip", newTrip);
         onSetTrips([...trips, newTrip]);
+        alert("Added new trip!");
       });
   }
 

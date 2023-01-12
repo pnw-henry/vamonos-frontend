@@ -1,4 +1,4 @@
-function Home({ user, isLoggedIn, trips }) {
+function Home({ user, isLoggedIn, trips, hotels }) {
   return (
     <div className="home">
       <div className="home-trips">
@@ -9,9 +9,9 @@ function Home({ user, isLoggedIn, trips }) {
               return <p key={trip.id}>{trip.destination}</p>;
             })}
             <h2>Your Hotels</h2>
-            {user.trips.map((trip) => {
-              if (trip.hotel != null) {
-                return <p key={trip.id}>{trip.hotel.name}</p>;
+            {hotels.map((hotel) => {
+              if (hotel != null) {
+                return <p key={hotel.id}>{hotel.name}</p>;
               }
             })}
           </div>
