@@ -1,4 +1,14 @@
 function Home({ user, isLoggedIn, trips, hotels }) {
+  const uniqIds = [];
+  const uniqHotels = [];
+
+  hotels.forEach((hotel) => {
+    if (hotel != null && !uniqIds.includes(hotel.id)) {
+      uniqIds.push(hotel.id);
+      uniqHotels.push(hotel);
+    }
+  });
+
   return (
     <div className="home">
       <div className="home-trips">
@@ -9,7 +19,7 @@ function Home({ user, isLoggedIn, trips, hotels }) {
               return <p key={trip.id}>{trip.destination}</p>;
             })}
             <h2>Your Hotels</h2>
-            {hotels.map((hotel) => {
+            {uniqHotels.map((hotel) => {
               if (hotel != null) {
                 return <p key={hotel.id}>{hotel.name}</p>;
               }

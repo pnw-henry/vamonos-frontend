@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function NewTrip({ userID, isLoggedIn, onSetTrips, trips }) {
+  const today = new Date();
+  const [departing, setDeparting] = useState(today);
+  const [returning, setReturning] = useState(today);
+  console.log("start date", departing);
   const [tripForm, setTripForm] = useState({
     destination: "",
     cost: "",
@@ -16,6 +22,24 @@ function NewTrip({ userID, isLoggedIn, onSetTrips, trips }) {
     setTripForm({
       ...tripForm,
       [e.target.name]: e.target.value,
+    });
+  }
+
+  function handleCheckIn(e) {
+    const check_in = e.toISOString().split("T")[0];
+    console.log("calendar select check in", check_in);
+    setTripForm({
+      ...tripForm,
+      check_in: check_in,
+    });
+  }
+
+  function handleCheckOut(e) {
+    const check_out = e.toISOString().split("T")[0];
+    console.log("calendar select check out", check_out);
+    setTripForm({
+      ...tripForm,
+      check_out: check_out,
     });
   }
 
@@ -69,20 +93,22 @@ function NewTrip({ userID, isLoggedIn, onSetTrips, trips }) {
               onChange={handleTripChange}
             />
             <br></br>
-            <input
-              name="check_in"
-              type="text"
-              placeholder="Check In Date YYYY/MM/DD"
-              value={tripForm.check_in}
-              onChange={handleTripChange}
+            <h2>Departing:</h2>
+            <DatePicker
+              selected={departing}
+              onSelect={handleCheckIn}
+              onChange={(date) => {
+                setDeparting(date);
+              }}
             />
             <br></br>
-            <input
-              name="check_out"
-              type="text"
-              placeholder="Check Out Date YYYY/MM/DD"
-              value={tripForm.check_out}
-              onChange={handleTripChange}
+            <h2>Returning:</h2>
+            <DatePicker
+              selected={returning}
+              onSelect={handleCheckOut}
+              onChange={(date) => {
+                setReturning(date);
+              }}
             />
             <br></br>
             <button type="submit" className="submit-trip-button">
